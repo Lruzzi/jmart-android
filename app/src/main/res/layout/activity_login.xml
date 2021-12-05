@@ -61,6 +61,7 @@
         android:layout_marginBottom="246dp"
         android:text="Don't have account?\nRegister Now!"
         android:textAlignment="center"
+        android:textColor="#2196F3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
