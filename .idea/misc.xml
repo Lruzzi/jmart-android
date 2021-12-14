@@ -3,14 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/android baru OOP/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2703125" />
         <entry key="..\:/android baru OOP/app/src/main/res/drawable/ic_baseline_add_box_24.xml" value="0.2703125" />
+        <entry key="..\:/android baru OOP/app/src/main/res/drawable/ic_baseline_attach_email_24.xml" value="0.2703125" />
         <entry key="..\:/android baru OOP/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.2703125" />
         <entry key="..\:/android baru OOP/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.2703125" />
+        <entry key="..\:/android baru OOP/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2703125" />
         <entry key="..\:/android baru OOP/app/src/main/res/layout/activity_about_me.xml" value="0.22146739130434784" />
         <entry key="..\:/android baru OOP/app/src/main/res/layout/activity_cereat_product.xml" value="0.2164855072463768" />
-        <entry key="..\:/android baru OOP/app/src/main/res/layout/activity_create_product.xml" value="0.22146739130434784" />
+        <entry key="..\:/android baru OOP/app/src/main/res/layout/activity_create_product.xml" value="0.19665271966527198" />
         <entry key="..\:/android baru OOP/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/android baru OOP/app/src/main/res/layout/activity_main.xml" value="0.25052083333333336" />
+        <entry key="..\:/android baru OOP/app/src/main/res/layout/activity_product_detail.xml" value="0.2164855072463768" />
         <entry key="..\:/android baru OOP/app/src/main/res/layout/activity_register.xml" value="0.25052083333333336" />
         <entry key="..\:/android baru OOP/app/src/main/res/layout/fragment_fragment1.xml" value="0.264" />
         <entry key="..\:/android baru OOP/app/src/main/res/layout/fragment_fragment2.xml" value="0.25416666666666665" />

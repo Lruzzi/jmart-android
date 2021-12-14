@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
 
+import com.GhulamJmartAK.jmart_android.model.Store;
 import com.android.volley.*;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
@@ -17,10 +18,14 @@ import org.json.*;
 
 public class LoginActivity extends AppCompatActivity {
     private static final Gson gson = new Gson();
-    private static Account loggedAccount = null;
+    public static Account loggedAccount = null;
 
     public static Account getLoggedAccount(){
         return loggedAccount;
+    }
+
+    public static void setLoggedAccount(Account account){
+        loggedAccount = account;
     }
 
     @Override
@@ -65,5 +70,14 @@ public class LoginActivity extends AppCompatActivity {
                 requestQueue.add(loginRequest);
             }
         });
+    }
+
+    public static void reloadLoggedAccount(String response){
+        loggedAccount = gson.fromJson(response, Account.class);
+    }
+
+    public static void insertLoggedAccountStore(String response){
+        Store newStore = gson.fromJson(response, Store.class);
+        loggedAccount.store = newStore;
     }
 }

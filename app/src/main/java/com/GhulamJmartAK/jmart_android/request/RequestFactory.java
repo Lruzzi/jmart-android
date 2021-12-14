@@ -1,13 +1,13 @@
 package com.GhulamJmartAK.jmart_android.request;
 
-import com.android.volley.Request;
-import com.android.volley.Response;
+import com.android.volley.*;
 import com.android.volley.toolbox.StringRequest;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class RequestFactory {
+public class RequestFactory
+{
     private static final String URL_FORMAT_ID = "http://192.168.100.9:8080/%s/%d";
     private static final String URL_FORMAT_PAGE = "http://192.168.100.9:8080/%s/page?page=%s&pageSize=%s";
 

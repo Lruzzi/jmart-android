@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         }
         if (item.getItemId() == R.id.add_button) {
             Toast.makeText(this, "Create Product Selected", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(MainActivity.this, CreateProduct.class);
+            Intent intent = new Intent(MainActivity.this, CreateProductActivity.class);
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
