@@ -1,5 +1,11 @@
 package com.GhulamJmartAK.jmart_android;
 
+/**
+ * Class yang berfungsi menghubungkan fragment Produk dan fragment filter ke Main activity
+ * @Author Ghulam Izzul Fuad
+ *
+ */
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;

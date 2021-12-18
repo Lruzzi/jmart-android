@@ -6,20 +6,26 @@
         <entry key="..\:/android baru OOP/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2703125" />
         <entry key="..\:/android baru OOP/app/src/main/res/drawable/ic_baseline_add_box_24.xml" value="0.2703125" />
         <entry key="..\:/android baru OOP/app/src/main/res/drawable/ic_baseline_attach_email_24.xml" value="0.2703125" />
+        <entry key="..\:/android baru OOP/app/src/main/res/drawable/ic_baseline_history_24.xml" value="0.14166666666666666" />
+        <entry key="..\:/android baru OOP/app/src/main/res/drawable/ic_baseline_info_24.xml" value="0.14166666666666666" />
         <entry key="..\:/android baru OOP/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.2703125" />
         <entry key="..\:/android baru OOP/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.2703125" />
+        <entry key="..\:/android baru OOP/app/src/main/res/drawable/ic_baseline_shopping_cart_24.xml" value="0.2703125" />
         <entry key="..\:/android baru OOP/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2703125" />
-        <entry key="..\:/android baru OOP/app/src/main/res/layout/activity_about_me.xml" value="0.22146739130434784" />
+        <entry key="..\:/android baru OOP/app/src/main/res/layout/activity_about_me.xml" value="0.264" />
         <entry key="..\:/android baru OOP/app/src/main/res/layout/activity_cereat_product.xml" value="0.2164855072463768" />
         <entry key="..\:/android baru OOP/app/src/main/res/layout/activity_create_product.xml" value="0.19665271966527198" />
         <entry key="..\:/android baru OOP/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/android baru OOP/app/src/main/res/layout/activity_main.xml" value="0.25052083333333336" />
-        <entry key="..\:/android baru OOP/app/src/main/res/layout/activity_product_detail.xml" value="0.2164855072463768" />
+        <entry key="..\:/android baru OOP/app/src/main/res/layout/activity_payment.xml" value="0.2" />
+        <entry key="..\:/android baru OOP/app/src/main/res/layout/activity_personal_invoice.xml" value="0.2" />
+        <entry key="..\:/android baru OOP/app/src/main/res/layout/activity_product_detail.xml" value="0.2" />
         <entry key="..\:/android baru OOP/app/src/main/res/layout/activity_register.xml" value="0.25052083333333336" />
         <entry key="..\:/android baru OOP/app/src/main/res/layout/fragment_fragment1.xml" value="0.264" />
         <entry key="..\:/android baru OOP/app/src/main/res/layout/fragment_fragment2.xml" value="0.25416666666666665" />
+        <entry key="..\:/android baru OOP/app/src/main/res/menu/home.xml" value="0.264" />
         <entry key="..\:/android baru OOP/app/src/main/res/menu/menu.xml" value="0.25416666666666665" />
-        <entry key="..\:/android baru OOP/app/src/main/res/menu/top_menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/android baru OOP/app/src/main/res/menu/top_menu.xml" value="0.1" />
       </map>
     </option>
   </component>
@@ -28,5 +34,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.25416666666666665" />
+      </ProjectState>
+    </option>
   </component>
 </project>

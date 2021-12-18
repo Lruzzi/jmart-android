@@ -4,163 +4,210 @@
     android:id="@+id/nameFilter"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment2">
+    android:background="#FFEEDD"
+    android:backgroundTint="#00BCBCBC"
+    tools:context=".filterFragment">
 
     <LinearLayout
-        android:id="@+id/Filter"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="10dp"
+        android:background="#FFEEDD"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/nameF"
+            android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="NAME"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="15dp"
+            android:text="Name"
+            android:textColor="@color/purple_500"
             android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/inputNameF"
+            android:id="@+id/nameInputFilter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
             android:ems="10"
             android:inputType="textPersonName"
             android:minHeight="48dp"
+            android:textColor="@color/black"
+            android:textColorHint="#EEEEEE"
             tools:ignore="SpeakableTextPresentCheck" />
 
         <LinearLayout
-            android:id="@+id/rangeP"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/LowPrice"
+                android:id="@+id/lowestFilter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
                 android:layout_weight="1"
                 android:text="Lowest Price"
+                android:textColor="@color/purple_500"
+                android:textColorHint="#EEEEEE"
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/highPrice"
+                android:id="@+id/highestFilter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
                 android:layout_weight="1"
                 android:text="Highest Price"
+                android:textColor="@color/purple_500"
+                android:textColorHint="#EEEEEE"
                 android:textSize="16sp" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/inputRa"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="64dp"
+            android:layout_marginHorizontal="20dp"
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/inputLow"
-                android:layout_width="156dp"
+                android:id="@+id/lowestInputFilter"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="textPersonName" />
+                android:inputType="number|numberDecimal"
+                android:textColor="@color/black"
+                android:textColorHint="#EEEEEE"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
             <TextView
-                android:id="@+id/toFilter"
+                android:id="@+id/textView10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
                 android:layout_weight="1"
                 android:text="to"
                 android:textAlignment="center"
-                android:textSize="16sp" />
+                android:textColor="@color/purple_200" />
 
             <EditText
-                android:id="@+id/inputGet"
-                android:layout_width="157dp"
+                android:id="@+id/highestInputFilter"
+                android:layout_width="160dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="textPersonName" />
-
+                android:inputType="number|numberDecimal"
+                android:textColor="@color/black"
+                android:textColorHint="#EEEEEE"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,TouchTargetSizeCheck" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/condiF"
             android:layout_width="match_parent"
-            android:layout_height="59dp"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="20dp"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/condF"
+                android:id="@+id/conditionFilter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
                 android:layout_weight="1"
                 android:text="Product Condition"
+                android:textColor="@color/purple_500"
                 android:textSize="16sp" />
 
             <CheckBox
-                android:id="@+id/newC"
+                android:id="@+id/newCheckFilter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
                 android:layout_weight="1"
                 android:text="New"
-                android:textSize="16sp" />
+                android:textColor="@color/purple_500" />
 
             <CheckBox
-                android:id="@+id/checkBox4"
+                android:id="@+id/usedCheckFilter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
                 android:layout_weight="1"
                 android:text="Used"
-                android:textSize="16sp" />
+                android:textColor="@color/purple_500" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/CateF"
             android:layout_width="match_parent"
-            android:layout_height="276dp"
+            android:layout_height="64dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="10dp"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/categF"
+                android:id="@+id/categoryFilter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
                 android:layout_weight="1"
                 android:text="Product Category"
+                android:textColor="@color/purple_500"
                 android:textSize="16sp" />
 
             <Spinner
-                android:id="@+id/spinner"
-                android:layout_width="14dp"
+                android:id="@+id/categoryDrawCreate"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
                 android:layout_weight="1"
+                android:background="@android:drawable/btn_dropdown"
+                android:backgroundTint="#F58840"
                 android:entries="@array/productCategory"
-                android:spinnerMode="dropdown" />
+                android:minHeight="48dp"
+                android:spinnerMode="dropdown"
+                tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/buttF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="10dp"
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/APPLY"
+                android:id="@+id/applyFilter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
                 android:layout_weight="1"
-                android:text="APPLY" />
+                android:backgroundTint="@color/purple_500"
+                android:text="Apply" />
 
             <Button
-                android:id="@+id/clearF"
+                android:id="@+id/clearFilter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
                 android:layout_weight="1"
-                android:text="CLEAR" />
+                android:backgroundTint="@color/purple_500"
+                android:text="Clear" />
         </LinearLayout>
 
-    </LinearLayout>
+        <ListView
+            android:id="@+id/filteredView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="20dp"
+            android:background="@color/greentea" />
 
+    </LinearLayout>
 </FrameLayout>

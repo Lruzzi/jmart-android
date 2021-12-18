@@ -1,21 +1,26 @@
 package com.GhulamJmartAK.jmart_android;
+/**
+ * Class ini untuk mendaftarkan produk yang ingin di jual sehingga terdaftar di sistem
+ * @author Ghulam Izzul Fuad
+ *
+ */
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.GhulamJmartAK.jmart_android.model.Account;
 import com.GhulamJmartAK.jmart_android.model.Product;
 import com.GhulamJmartAK.jmart_android.request.CreateProductRequest;
 import com.android.volley.RequestQueue;
@@ -25,13 +30,13 @@ import com.google.gson.Gson;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 public class CreateProductActivity extends AppCompatActivity {
 
     private static final Gson gson = new Gson();
     private static  Product product = null;
 
+    //menghubungkan XML dengan kelas CrateProductActivity.java
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,6 +107,7 @@ public class CreateProductActivity extends AppCompatActivity {
         });
     }
 
+    //Menassign metode shipment menjadi angka dalam bentuk string
     protected String convertShipmentPlans(String shipment){
         switch (shipment) {
             case "INSTANT":
@@ -115,5 +121,22 @@ public class CreateProductActivity extends AppCompatActivity {
             default:
                 return "4";
         }
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.home, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        //Jika tombol aboutMe ditekan, halaman akn berganti ke Main Activity
+        if (item.getItemId() == R.id.homeButton) {
+            Toast.makeText(this, "Home Selected", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(CreateProductActivity.this, MainActivity.class);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

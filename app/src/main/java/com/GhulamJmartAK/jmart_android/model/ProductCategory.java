@@ -1,4 +1,8 @@
 package com.GhulamJmartAK.jmart_android.model;
+/**
+ * Class ProductCategory dibuat sama dengan back-end untuk mensinkronkan data yang di passing
+ * @author Ghulam Izzul Fuad
+ */
 
 public enum ProductCategory {
     BOOK,
@@ -6,6 +10,7 @@ public enum ProductCategory {
     ELECTRONIC,
     FASHION,
     GAMING,
+    GADGET,
     MOTHERCARE,
     COSMETICS,
     HEALTHCARE,

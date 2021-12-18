@@ -1,4 +1,9 @@
 package com.GhulamJmartAK.jmart_android;
+/**
+ * Class untuk menampilkan halaman utama yang berisi list produk atau filter produk
+ * dan juga tombol search, create produk, dan detail akun (aboutMe)
+ * @author Ghulam Izzul Fuad
+ */
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,28 +32,43 @@ public class MainActivity extends AppCompatActivity {
         viewPager = findViewById(R.id.viewp);
         tabLayout.setupWithViewPager(viewPager);
         VPAdapter vpAdapter = new VPAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-        vpAdapter.addFragment(new fragment1(), "Product");
-        vpAdapter.addFragment(new fragment2(), "Filter");
+        //fragment Produk (kiri)
+        vpAdapter.addFragment(new productFragment(), "Product");
+        //fragment Filter (kanan)
+        vpAdapter.addFragment(new filterFragment(), "Filter");
         viewPager.setAdapter(vpAdapter);
     }
 
+    //Memuat top menu yang berisi search, create produk, dan aboutme
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.top_menu, menu);
+        MenuItem create = menu.findItem(R.id.add_button);
+
+        create.setVisible(LoginActivity.getLoggedAccount().store != null);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        //Jika tombol aboutMe ditekan, halaman akn berganti ke detail akun (aboutMeActivity)
         if (item.getItemId() == R.id.account_button) {
             Toast.makeText(this, "Account Selected", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(MainActivity.this, AboutMeActivity.class);
             startActivity(intent);
         }
+        //Jika tombol create produk ditekan, halaman akan berganti ke createProductActivity
         if (item.getItemId() == R.id.add_button) {
             Toast.makeText(this, "Create Product Selected", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(MainActivity.this, CreateProductActivity.class);
+            startActivity(intent);
+        }
+        //TOmbol untuk ke personal invoice
+        if (item.getItemId() == R.id.history_personal_button) {
+            Toast.makeText(this, "History Account Selected", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(MainActivity.this, PersonalInvoiceActivity.class);
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);

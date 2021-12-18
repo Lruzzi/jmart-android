@@ -1,4 +1,8 @@
 package com.GhulamJmartAK.jmart_android;
+/**
+ * Class untuk menampilkan halaman Login akun dengan email dan password
+ * @author Ghulam Izzul Fuad
+ */
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,13 +24,11 @@ public class LoginActivity extends AppCompatActivity {
     private static final Gson gson = new Gson();
     public static Account loggedAccount = null;
 
+    //Digunakan untuk mendapatkan informasi akun yang telah login
     public static Account getLoggedAccount(){
         return loggedAccount;
     }
 
-    public static void setLoggedAccount(Account account){
-        loggedAccount = account;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         TextView register = findViewById(R.id.textToRegister);
+        //register button, akan menuju ke laman register jika pengguna menekan tombol ini
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -72,10 +75,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    public static void reloadLoggedAccount(String response){
-        loggedAccount = gson.fromJson(response, Account.class);
-    }
-
+    //digunakan di About Me activity untuk mengambil data store
     public static void insertLoggedAccountStore(String response){
         Store newStore = gson.fromJson(response, Store.class);
         loggedAccount.store = newStore;

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">jmart-android</string>
+    <string name="app_name">jmart</string>
     <string name="hello_user">Hello User!</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string-array name="shipmentPlans">

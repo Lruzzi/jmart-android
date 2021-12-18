@@ -1,4 +1,10 @@
 package com.GhulamJmartAK.jmart_android;
+/**
+ * Class yang berfungsi untuk menampilkan halaman register akun
+ * jika pengguna menekan tombol register now di login activity
+ * @Author Ghulam Izzul Fuad
+ *
+ */
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,7 +17,6 @@ import android.widget.Toast;
 
 import com.GhulamJmartAK.jmart_android.model.Account;
 import com.GhulamJmartAK.jmart_android.request.RegisterRequest;
-import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;

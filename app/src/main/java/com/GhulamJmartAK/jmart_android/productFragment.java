@@ -1,4 +1,8 @@
 package com.GhulamJmartAK.jmart_android;
+/**
+ * Class yang menampilkan list produk yang telah terdaftar di sistem ke mainActivity
+ * @Author Ghulam Izzul Fuad
+ */
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -30,13 +34,15 @@ import org.json.JSONException;
 import java.util.ArrayList;
 
 
-public class fragment1 extends Fragment {
+public class productFragment extends Fragment {
 
     private static final Gson gson = new Gson();
     public static ArrayList<Product> productsList = new ArrayList<>();
+
+    //Jumlah produk yang ditampilkan perhalaman = 15
     final int pageSize = 15;
     static int page = 0;
-    static Product productClicked = null;
+    public static Product productClicked = null;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -48,6 +54,7 @@ public class fragment1 extends Fragment {
 
         inputPage.setText(String.valueOf(page + 1), TextView.BufferType.EDITABLE);
 
+        //Next Button, digunakan untuk berpindah ke halaman selanjutnya
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -58,11 +65,13 @@ public class fragment1 extends Fragment {
             }
         });
 
+        //Previous Button, digunakan untuk berpindah ke halaman sebelumnya
         prevButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getActivity(),"Prev Page", Toast.LENGTH_SHORT).show();
                 page -= 1;
+                //error handling, jika halaman < 0 atau negatif akan tetap berada di halam pertama (0)
                 if(page < 0){
                     page = 0;
                 }
@@ -71,6 +80,7 @@ public class fragment1 extends Fragment {
             }
         });
 
+        //Go button, digunakan untuk melompat ke halaman sesuai input user
         goButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -98,6 +108,8 @@ public class fragment1 extends Fragment {
                         ListView lv = (ListView) productView.findViewById(R.id.ProductListView);
 
                         lv.setAdapter(listViewAdapter);
+
+                        // Saat sebuah produk ditekan akan menuju ke halaman detail produk untuk menampilkan detail informasi produk
                         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override
                             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {

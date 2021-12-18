@@ -10,6 +10,7 @@
         android:id="@+id/tablayout"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
+        android:background="#E6A978"
         app:layout_constraintBottom_toTopOf="@+id/viewp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -31,7 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
         android:layout_marginTop="44dp"
-        android:background="#FFFFFF"
+        android:background="#FFEEDD"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"

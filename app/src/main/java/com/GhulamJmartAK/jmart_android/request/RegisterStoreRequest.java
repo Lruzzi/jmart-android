@@ -1,4 +1,9 @@
 package com.GhulamJmartAK.jmart_android.request;
+/**
+ * Class RegisterStoreRequest berfungsi untuk menghubungkan ke back-end
+ * sehingga pengguna dapat mendaftar toko di aplikasi dan tersimpan di sistem back-end
+ * @author Ghulam Izzul Fuad
+ */
 
 import com.GhulamJmartAK.jmart_android.LoginActivity;
 import com.android.volley.Response;
@@ -9,7 +14,7 @@ import java.util.Map;
 
 
 public class RegisterStoreRequest extends StringRequest {
-    private static final String URL =  "http://192.168.100.9:8080/account/" + LoginActivity.getLoggedAccount().id + "/registerStore";
+    private static final String URL =  "http://10.0.2.2:8080/account/" + LoginActivity.getLoggedAccount().id + "/registerStore";
     private final Map<String , String> params;
 
     public RegisterStoreRequest(int id, String name, String address, String phoneNumber, Response.Listener<String> listener, Response.ErrorListener errorListener) {

@@ -1,4 +1,9 @@
 package com.GhulamJmartAK.jmart_android.request;
+/**
+ * Class TopUpRequest berfungsi untuk menghubungkan ke back-end
+ * sehingga pengguna dapat melakukan top up balance melalui aplikasi dan tercatat di sistem back-end
+ * @author Ghulam Izzul Fuad
+ */
 
 import com.GhulamJmartAK.jmart_android.LoginActivity;
 import com.android.volley.Response;
@@ -8,7 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TopUpRequest extends StringRequest {
-    private static final String URL =  "http://192.168.100.9:8080/account/" + LoginActivity.getLoggedAccount().id + "/topUp";
+    private static final String URL =  "http://10.0.2.2:8080/account/" + LoginActivity.getLoggedAccount().id + "/topUp";
     private final Map<String , String> params;
 
     public TopUpRequest

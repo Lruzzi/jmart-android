@@ -1,4 +1,9 @@
 package com.GhulamJmartAK.jmart_android.request;
+/**
+ * Class Create ProcuctRequest berfungsi untuk menghubungkan ke back-end \
+ * sehingga pengguna dapat medaftarkan product yang ingin dijual
+ * @Author Ghulam Izzul Fuad
+ */
 
 import androidx.annotation.Nullable;
 
@@ -11,7 +16,7 @@ import java.util.Map;
 
 public class CreateProductRequest extends StringRequest {
 
-    public static final String URL = "http://192.168.100.9:8080/product/create";
+    public static final String URL = "http://10.0.2.2:8080/product/create";
     public final Map<String,String> params;
 
     public CreateProductRequest(String name, String weight, String conditionUsed, String price, String discount, String category, String shipmentPlans, Response.Listener<String> listener, @Nullable Response.ErrorListener errorListener) {
