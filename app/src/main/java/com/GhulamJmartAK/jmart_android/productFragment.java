@@ -46,7 +46,7 @@ public class productFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View productView = inflater.inflate(R.layout.fragment_fragment1, container, false);
+        View productView = inflater.inflate(R.layout.fragment_product, container, false);
         EditText inputPage = productView.findViewById(R.id.InputPageProduct);
         Button nextButton = productView.findViewById(R.id.ButtonNext);
         Button prevButton = productView.findViewById(R.id.ButtonPrev);

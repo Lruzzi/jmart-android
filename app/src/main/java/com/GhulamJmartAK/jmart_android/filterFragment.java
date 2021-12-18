@@ -46,7 +46,7 @@ public class filterFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         //menginisiasi komponen yang ada pada fragment
-        View productView = inflater.inflate(R.layout.fragment_fragment2, container, false);
+        View productView = inflater.inflate(R.layout.fragment_filter, container, false);
         EditText name = productView.findViewById(R.id.nameInputFilter);
         EditText lowestPrice = productView.findViewById(R.id.lowestInputFilter);
         EditText highestPrice = productView.findViewById(R.id.highestInputFilter);
