@@ -158,7 +158,7 @@
                 android:layout_width="320dp"
                 android:layout_height="48dp"
                 android:layout_marginTop="20dp"
-                android:backgroundTint="#673AB7"
+                android:backgroundTint="@color/purple_500"
                 android:text="REGISTER STORE"
                 android:textSize="11sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -168,17 +168,18 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv_registerStore"
                 android:layout_width="324dp"
-                android:layout_height="350dp"
-                android:layout_marginBottom="10dp"
+                android:layout_height="339dp"
+                android:layout_marginBottom="9dp"
                 android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:visibility="gone">
+                tools:visibility="visible">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="#ffe18c">
 
                     <TextView
                         android:id="@+id/tv_registerStore"
@@ -225,7 +226,7 @@
                         android:layout_marginTop="15dp"
                         android:ems="18"
                         android:hint="Phone Number"
-                        android:inputType="textPersonName"
+                        android:inputType="numberDecimal"
                         android:minHeight="48dp"
                         android:textSize="14sp"
                         app:layout_constraintEnd_toEndOf="@+id/et_storeAddress"
@@ -237,7 +238,7 @@
                         android:layout_width="130dp"
                         android:layout_height="48dp"
                         android:layout_marginTop="30dp"
-                        android:backgroundTint="#673AB7"
+                        android:backgroundTint="@color/purple_500"
                         android:text="REGISTER"
                         android:textSize="12sp"
                         app:layout_constraintStart_toStartOf="@+id/et_storePhoneNumber"
@@ -247,7 +248,7 @@
                         android:id="@+id/btnRegisterStoreCancel"
                         android:layout_width="130dp"
                         android:layout_height="48dp"
-                        android:backgroundTint="#673AB7"
+                        android:backgroundTint="@color/purple_500"
                         android:text="CANCEL"
                         android:textSize="12sp"
                         app:layout_constraintBottom_toBottomOf="@+id/btnRegisterStoreConfirm"
@@ -266,7 +267,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/logoutButton"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:visibility="visible">
+                tools:visibility="gone">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"

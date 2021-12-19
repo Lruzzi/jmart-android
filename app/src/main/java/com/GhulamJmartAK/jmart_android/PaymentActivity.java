@@ -110,7 +110,7 @@ public class PaymentActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        //Jika tombol aboutMe ditekan, halaman akn berganti ke Main Activity
+        //Jika tombol home ditekan, halaman akn berganti ke Main Activity
         if (item.getItemId() == R.id.homeButton) {
             Toast.makeText(this, "Home Selected", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(PaymentActivity.this, MainActivity.class);

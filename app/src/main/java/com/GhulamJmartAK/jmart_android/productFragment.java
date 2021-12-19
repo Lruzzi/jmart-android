@@ -43,6 +43,7 @@ public class productFragment extends Fragment {
     final int pageSize = 15;
     static int page = 0;
     public static Product productClicked = null;
+    public static ArrayAdapter<Product> listViewAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -100,7 +101,7 @@ public class productFragment extends Fragment {
                         productsList = gson.fromJson(object.toString(), new TypeToken<ArrayList<Product>>() {
                         }.getType()); // line 6
                         System.out.println(productsList);
-                        ArrayAdapter<Product> listViewAdapter = new ArrayAdapter<Product>(
+                        listViewAdapter = new ArrayAdapter<Product>(
                                 getActivity(),
                                 android.R.layout.simple_list_item_1,
                                 productsList
@@ -127,7 +128,6 @@ public class productFragment extends Fragment {
                 }
             }
         };
-
         RequestQueue requestQueue = Volley.newRequestQueue(getActivity().getApplicationContext());
         requestQueue.add(RequestFactory.getPage("product", page, pageSize, listener, null));
 

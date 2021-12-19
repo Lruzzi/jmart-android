@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
+import androidx.appcompat.widget.SearchView;
 
 import com.google.android.material.tabs.TabLayout;
 
@@ -23,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
+    private MenuItem search;
+    private SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +48,23 @@ public class MainActivity extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.top_menu, menu);
         MenuItem create = menu.findItem(R.id.add_button);
+        search = menu.findItem(R.id.search_button);
+        searchView = (SearchView) search.getActionView();
+        searchView.setQueryHint("Butuh apa hari ini?");
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+
+                productFragment.listViewAdapter.getFilter().filter(newText);
+
+                return false;
+            }
+        });
 
         create.setVisible(LoginActivity.getLoggedAccount().store != null);
         return true;

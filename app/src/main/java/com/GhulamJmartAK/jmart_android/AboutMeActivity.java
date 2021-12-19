@@ -27,10 +27,13 @@ import com.GhulamJmartAK.jmart_android.request.TopUpRequest;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
 
 import com.GhulamJmartAK.jmart_android.request.RegisterStoreRequest;
+
+import org.json.JSONObject;
 
 
 public class AboutMeActivity extends AppCompatActivity {
@@ -135,28 +138,49 @@ public class AboutMeActivity extends AppCompatActivity {
                 String name = registerStoreName.getText().toString();
                 String address = registerStoreAddress.getText().toString();
                 String phoneNumber = registerStorePhone.getText().toString();
-                RegisterStoreRequest registerStoreRequest = new RegisterStoreRequest(LoginActivity.getLoggedAccount().id, name, address, phoneNumber, new Response.Listener<String>() {
+                if(!name.isEmpty() && !address.isEmpty() && !phoneNumber.isEmpty() ) {
+                    RegisterStoreRequest registerStoreRequest = new RegisterStoreRequest(LoginActivity.getLoggedAccount().id, name, address, phoneNumber, new Response.Listener<String>() {
 
-                    //beberapa pesan yang akan muncul tergantung kondisi saat berhasil atau tidaknya register store
-                    @Override
-                    public void onResponse(String response) {
-                        LoginActivity.insertLoggedAccountStore(response);
-                        try {
-                            Toast.makeText(getApplicationContext(), "Register Store successful", Toast.LENGTH_LONG).show();
-                            finish();
-                            startActivity(new Intent(getApplicationContext(), AboutMeActivity.class));
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            Toast.makeText(getApplicationContext(), "Register Store unsuccessful, error occurred", Toast.LENGTH_LONG).show();
+                        //beberapa pesan yang akan muncul tergantung kondisi saat berhasil atau tidaknya register store
+                        @Override
+                        public void onResponse(String response) {
+                            LoginActivity.insertLoggedAccountStore(response);
+
+                            try {
+                                JSONObject object = new JSONObject(response);
+                                if(object != null) {
+                                    Toast.makeText(getApplicationContext(), "Register Store successful", Toast.LENGTH_LONG).show();
+                                    finish();
+                                    startActivity(new Intent(getApplicationContext(), AboutMeActivity.class));
+                                }
+                                else
+                                {
+                                    Toast.makeText(getApplicationContext(), "Register Store unsuccessful, error occurred", Toast.LENGTH_LONG).show();
+                                }
+
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                                Toast.makeText(getApplicationContext(), "Register Store unsuccessful, Pastikan data diisi dengan Benar", Toast.LENGTH_LONG).show();
+                            }
                         }
-                    }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getApplicationContext(), "Register Store unsuccessful, error occurred banget", Toast.LENGTH_LONG).show();
-                    }
-                });
-                queue.add(registerStoreRequest);
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Toast.makeText(getApplicationContext(), "Register Store unsuccessful, error occurred banget", Toast.LENGTH_LONG).show();
+                        }
+                    });
+                    queue.add(registerStoreRequest);
+                }
+                if(name.isEmpty()) {
+                    Toast.makeText(getApplicationContext(),"Nama Tidak Boleh Kosong", Toast.LENGTH_SHORT).show();
+                }
+                else if (address.isEmpty()) {
+                    Toast.makeText(getApplicationContext(),"Alamat Tidak Boleh Kosong", Toast.LENGTH_SHORT).show();
+                }
+                else if (phoneNumber.isEmpty()) {
+                    Toast.makeText(getApplicationContext(),"Nomor Handphone Tidak Boleh Kosong", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
         buttonLogOut = findViewById(R.id.logoutButton);

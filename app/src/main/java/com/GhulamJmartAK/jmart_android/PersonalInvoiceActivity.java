@@ -1,13 +1,16 @@
 package com.GhulamJmartAK.jmart_android;
 
-import androidx.annotation.NonNull;
+/**
+ * Class yang menampilkan Payment Activity
+ * berisi produck detail dan meminta input jumlah produck yang akan dibeli
+ * dan alamat pengiriman
+ * @author Ghulam Izzul Fuad
+ */
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -28,45 +31,68 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class PersonalInvoiceActivity extends AppCompatActivity {
 
-    private static final Gson gson = new Gson();
+
     public static ArrayList<Payment> paymentList = new ArrayList<>();
     public static ArrayList<Product> products = new ArrayList<>();
-    static int pageSize = 5;
-    static Integer page = 0;
-    static Product paymentClicked = null;
-    static int checker = 0;
-
+    private static final Gson gson = new Gson();
+    static int pageSize = 20;
+    static int page = 0;
+    private static int sentinel = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personal_invoice);
 
+        Button back = findViewById(R.id.buttonBack);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(PersonalInvoiceActivity.this,"Menu!", Toast.LENGTH_SHORT).show();
+                products.clear();
+                sentinel = 0;
+                Intent intent = new Intent(PersonalInvoiceActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button refresh = findViewById(R.id.buttonRefresh);
+        refresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(sentinel == 0){
+                    Toast.makeText(PersonalInvoiceActivity.this,"Refresh!", Toast.LENGTH_SHORT).show();
+                    PersonalInvoiceActivity.this.finish();
+                    PersonalInvoiceActivity.this.overridePendingTransition(0,0);
+                    PersonalInvoiceActivity.this.startActivity(PersonalInvoiceActivity.this.getIntent());
+                    sentinel += 1;
+                }
+                else if(sentinel > 0){
+                    Toast.makeText(PersonalInvoiceActivity.this,"Already Refreshed", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
         Response.Listener<String> listener = new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-
                 try {
                     JSONArray object = new JSONArray(response);
                     if (object != null) {
                         paymentList = gson.fromJson(object.toString(), new TypeToken<ArrayList<Payment>>() {
                         }.getType());
-                        System.out.println(paymentList);
                         convertPayment();
-                        System.out.println(products);
                         ArrayAdapter<Product> listViewAdapter = new ArrayAdapter<Product>(
-                                PersonalInvoiceActivity.this, android.R.layout.simple_list_item_1, products
+                                PersonalInvoiceActivity.this,
+                                android.R.layout.simple_list_item_1,
+                                products
                         );
-
-                        ListView lv = (ListView) findViewById(R.id.storeHistory);
+                        ListView lv = (ListView) findViewById(R.id.ListPersonalHistory);
 
                         lv.setAdapter(listViewAdapter);
-
-
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -75,36 +101,9 @@ public class PersonalInvoiceActivity extends AppCompatActivity {
         };
         RequestQueue requestQueue = Volley.newRequestQueue(PersonalInvoiceActivity.this);
         requestQueue.add(RequestFactory.getPage("payment", page, pageSize, listener, null));
-        Button refresh = findViewById(R.id.refreshButton);
-        refresh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (checker == 0) {
-                    Toast.makeText(PersonalInvoiceActivity.this, "Refreshed", Toast.LENGTH_SHORT).show();
-                    PersonalInvoiceActivity.this.finish();
-                    PersonalInvoiceActivity.this.overridePendingTransition(0, 0);
-                    PersonalInvoiceActivity.this.startActivity(PersonalInvoiceActivity.this.getIntent());
-                    checker += 1;
-                } else if (checker > 0) {
-                    Toast.makeText(PersonalInvoiceActivity.this, "Up to Date", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-        Button back = findViewById(R.id.backButton);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                products.clear();
-                checker = 0;
-                Intent intent = new Intent(PersonalInvoiceActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 
     private void convertPayment() {
-        int i = 0;
         for (Payment each : paymentList) {
             if(each.buyerId == LoginActivity.loggedAccount.id){
                 Response.Listener<String> listenerConvert = new Response.Listener<String>() {
@@ -125,24 +124,5 @@ public class PersonalInvoiceActivity extends AppCompatActivity {
                 requestQueue.add(RequestFactory.getById("product", each.productId, listenerConvert, null));
             }
         }
-    }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.home, menu);
-        return true;
-    }
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
-        //Jika tombol aboutMe ditekan, halaman akn berganti ke Main Activity
-        if (item.getItemId() == R.id.homeButton) {
-            products.clear();
-            checker = 0;
-            Toast.makeText(this, "Home Selected", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(PersonalInvoiceActivity.this, MainActivity.class);
-            startActivity(intent);
-        }
-        return super.onOptionsItemSelected(item);
     }
 }
